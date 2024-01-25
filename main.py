@@ -3,10 +3,13 @@ import time
 
 from asciimatics.screen import ManagedScreen
 import esper
-
 from components import Intelligence, Position, Velocity
 import systems
-import tank
+import howitzer
+import F18
+
+
+
 
 
 ##########################
@@ -32,15 +35,15 @@ def main():
         movement_system = systems.MovementSystem(max_board_size)
         # esper.add_processor(movement_system)
 
-        renderable_system = systems.RenderSystem(screen, debug=True)
+        renderable_system = systems.renderSystem(screen, debug=True)
         # esper.add_processor(renderable_system, -1)
 
         # Create entities and assign Component instances to them
-        _tank_one = tank.create(max_board_size)
-        _tank_two = tank.create(max_board_size)
-        _tank_three = tank.create(max_board_size)
-        _tank_four = tank.create(max_board_size)
-
+        _howitzer_one = howitzer.create(max_board_size)
+        _howitzer_two = howitzer.create(max_board_size)
+        _howitzer_three = howitzer.create(max_board_size)
+        _howitzer_four = howitzer.create(max_board_size)
+        _F18_one = F18 .create(max_board_size)
         # main loop
         running = True
         while running:
@@ -48,7 +51,7 @@ def main():
                 while True:
                     screen.clear()
 
-                    # esper.process()
+                    esper.process()
                     ai_system.process()
                     movement_system.process()
                     renderable_system.process()

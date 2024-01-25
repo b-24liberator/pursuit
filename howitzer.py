@@ -9,17 +9,17 @@ from intelligence import Wander
 
 
 def create(max_board_size, ai_engine=None) -> int:
-    F18 = esper.create_entity()
-    esper.add_component('F-18', Velocity(x=0.0, y=0.0))
+    howitzer = esper.create_entity()
+    esper.add_component(howitzer, Velocity(x=0.0, y=0.0))
 
     pos_x = randint(0, max_board_size)
     pos_y = randint(0, max_board_size)
-    esper.add_component(F18, Position(x=pos_x, y=pos_y))
-    esper.add_component(F18, Renderable())
+    esper.add_component(howitzer, Position(x=pos_x, y=pos_y))
+    esper.add_component(howitzer, Renderable())
 
     # If an ai_engine was passed in use that, otherwise, default to Wandering
     if not ai_engine:
         ai_engine = Wander()
-    esper.add_component(F18, Intelligence(ai_engine))
+    esper.add_component(howitzer, Intelligence(ai_engine))
 
-    return F18
+    return howitzer

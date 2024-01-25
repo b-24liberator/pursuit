@@ -11,4 +11,13 @@ class Wander:
 
         fire_bullet = randrange(0, 100)
         if fire_bullet <= 25:
-            entities.bullet.create('UP', pos.x, pos.y)
+            shellDirection = randint(1,4)
+            if shellDirection == 1:
+                shellDirection = 'UP'
+            elif shellDirection == 2:
+                shellDirection = 'DOWN'
+            elif shellDirection == 3:
+                shellDirection = 'LEFT'
+            elif shellDirection == 4:
+                shellDirection = 'RIGHT'
+            entities.bullet.create(shellDirection, pos.x, pos.y)

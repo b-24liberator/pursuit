@@ -10,7 +10,7 @@ from intelligence import Wander
 
 def create(max_board_size, ai_engine=None) -> int:
     F18 = esper.create_entity()
-    esper.add_component('F-18', Velocity(x=0.0, y=0.0))
+    esper.add_component(F18, Velocity(x=0.0, y=0.0))
 
     pos_x = randint(0, max_board_size)
     pos_y = randint(0, max_board_size)

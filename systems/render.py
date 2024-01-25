@@ -1,4 +1,4 @@
-# pylint: disable=missing-module-docstring,missing-class-docstring,missing-function-docstring,too-few-public-methods,invalid-name
+# pylint: disable=missing-module-docstring,missing-class-docstring,missing-function-docstring,too-few-public-methods,invalid-name,line-too-long
 from asciimatics.screen import Screen
 import esper
 
@@ -47,7 +47,7 @@ class RenderSystem(esper.Processor):
                                     bg=Screen.COLOUR_YELLOW)
 
             # Move to the position of the tank and draw it
-            self.screen.print_at(f'T[{ent}]', pos.x, pos.y,
+            self.screen.print_at(f'F18[{ent}]', pos.x, pos.y,
                                  bg=Screen.COLOUR_WHITE)
 
             # Increment the index of the object so that the debug output can be placed correctly
@@ -57,4 +57,4 @@ class RenderSystem(esper.Processor):
         # Draw the bullets
         for ent, (_proj_id, pos) in esper.get_components(Projectile, Position):
             # Move to the position of the tank and draw it
-            self.screen.print_at(f"B[{ent}]", pos.x, pos.y, bg=Screen.COLOUR_WHITE)
+            self.screen.print_at(f"bullet[{ent}]", pos.x, pos.y, bg=Screen.COLOUR_WHITE)
